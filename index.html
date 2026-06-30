@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omera Wood</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-151375784492"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-151375784492');
+    </script>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="متجر Omera Wood - منتجات خشبية فاخرة مصنوعة يدوياً. شمعدانات، صواني، ديكورات حائط، وأطقم خشبية عالية الجودة">
+    <meta name="keywords" content="منتجات خشبية, شمعدان خشبي, صينية خشبية, ديكورات حائط, هدايا خشبية, Omera Wood">
+    <meta name="author" content="Omera Wood">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Omera Wood - منتجات خشبية فاخرة">
+    <meta property="og:description" content="اكتشف تشكيلتنا الفريدة من المنتجات الخشبية المصنوعة يدوياً بجودة عالية.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omerra-wood.github.io/omerra-wood/">
+    <meta property="og:image" content="https://i.imgur.com/your-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Omera Wood - منتجات خشبية فاخرة">
+    <meta name="twitter:description" content="اكتشف تشكيلتنا الفريدة من المنتجات الخشبية المصنوعة يدوياً.">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-tree"></i>
+                <h1>Omera Wood</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#about">عن المتجر</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2>منتجاتنا الخشبية</h2>
+            
+            <!-- أزرار التصفية -->
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterProducts('all')">
+                    <i class="fas fa-th-list"></i> الكل <span class="count" id="count-all">9</span>
+                </button>
+                <button class="filter-btn" onclick="filterProducts('شمعدان')">
+                    <i class="fas fa-candle"></i> شمعدانات <span class="count" id="count-شمعدان">2</span>
+                </button>
+                <button class="filter-btn" onclick="filterProducts('صينية')">
+                    <i class="fas fa-utensils"></i> صواني <span class="count" id="count-صينية">2</span>
+                </button>
+                <button class="filter-btn" onclick="filterProducts('ديكور')">
+                    <i class="fas fa-paint-brush"></i> ديكورات <span class="count" id="count-ديكور">1</span>
+                </button>
+                <button class="filter-btn" onclick="filterProducts('طقم')">
+                    <i class="fas fa-box"></i> طواقم <span class="count" id="count-طقم">1</span>
+                </button>
+            </div>
+
+            <!-- المنتجات المميزة -->
+            <div class="featured-section">
+                <h3><i class="fas fa-star" style="color: #f39c12;"></i> منتجات مميزة</h3>
+                <div class="featured-grid" id="featuredGrid">
+                    <!-- سيتم إضافتها بواسطة JavaScript -->
+                </div>
+            </div>
+
+            <!-- شريط البحث -->
+            <div class="search-bar">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="🔍 ابحث عن منتج..." onkeyup="searchProducts()">
+                    <button onclick="searchProducts()"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- سيتم إضافة المنتجات بواسطة JavaScript -->
+            </div>
+
+            <!-- أزرار المشاركة -->
+            <div class="share-section">
+                <div class="container">
+                    <h3><i class="fas fa-share-alt"></i> شارك المنتجات مع أصدقائك</h3>
+                    <div class="share-buttons">
+                        <button class="share-btn facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook"></i> فيسبوك
+                        </button>
+                        <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="share-btn twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-x-twitter"></i> X
+                        </button>
+                        <button class="share-btn instagram" onclick="shareOnInstagram()">
+                            <i class="fab fa-instagram"></i> إنستغرام
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم عن المتجر -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2><i class="fas fa-info-circle"></i> عن متجر Omera Wood</h2>
+            <div class="about-content">
+                <p>
+                    <i class="fas fa-tree icon"></i>
+                    نحن متخصصون في صناعة المنتجات الخشبية اليدوية الفاخرة منذ أكثر من 10 سنوات.
+                </p>
+                <p>
+                    <i class="fas fa-handshake icon"></i>
+                    نستخدم أجود أنواع الخشب الطبيعي لنقدم لكم منتجات فريدة تجمع بين الأصالة والجودة العالية.
+                </p>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>جودة عالية</h4>
+                        <p>منتجاتنا مصنوعة من أفضل أنواع الخشب</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-gem"></i>
+                        <h4>تصاميم فريدة</h4>
+                        <p>كل قطعة مصممة يدوياً بعناية</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-truck"></i>
+                        <h4>توصيل سريع</h4>
+                        <p>نوصل طلباتك في أقرب وقت</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- عربة التسوق -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> عربة التسوق</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">العربة فارغة</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>المجموع الكلي:</span>
+                <span id="cartTotal">0.00 ج.م</span>
+            </div>
+            <button class="clear-cart-btn" onclick="clearCart()">
+                <i class="fas fa-trash"></i> مسح العربة
+            </button>
+            <button class="checkout-btn" onclick="showCheckoutForm()">إتمام الشراء</button>
+        </div>
+    </div>
+
+    <!-- نموذج إتمام الشراء -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-clipboard-list"></i> بيانات الطلب</h3>
+                <button class="close-modal" onclick="closeCheckoutForm()">&times;</button>
+            </div>
+            <form id="checkoutForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label for="customerName">الاسم الكامل *</label>
+                    <input type="text" id="customerName" required placeholder="أدخل اسمك الكامل">
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">رقم الهاتف *</label>
+                    <input type="tel" id="customerPhone" required placeholder="أدخل رقم هاتفك">
+                </div>
+                <div class="form-group">
+                    <label for="customerAddress">العنوان *</label>
+                    <textarea id="customerAddress" required placeholder="أدخل عنوان التوصيل"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="customerNotes">ملاحظات إضافية</label>
+                    <textarea id="customerNotes" placeholder="أي ملاحظات إضافية للطلب"></textarea>
+                </div>
+                <div class="order-summary" id="orderSummary">
+                    <!-- سيتم عرض ملخص الطلب هنا -->
+                </div>
+                <button type="submit" class="submit-order-btn">
+                    <i class="fas fa-check-circle"></i> تأكيد الطلب
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- رسالة التأكيد -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>تم استلام طلبك بنجاح!</h3>
+            <p>شكراً لك على ثقتك. سيتم التواصل معك قريباً لتأكيد الطلب.</p>
+            <button onclick="closeSuccessModal()">حسناً</button>
+        </div>
+    </div>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 خشبيات - جميع الحقوق محفوظة</p>
+            <div class="footer-links">
+                <a href="javascript:void(0)" onclick="showPrivacyPolicy()">سياسة الخصوصية</a>
+                <a href="javascript:void(0)" onclick="showTerms()">شروط الاستخدام</a>
+                <a href="javascript:void(0)" onclick="showContact()">اتصل بنا</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- زر العودة للأعلى -->
+    <button class="scroll-top-btn" onclick="scrollToTop()" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>
